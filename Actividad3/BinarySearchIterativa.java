@@ -29,17 +29,23 @@ public class BinarySearchIterativa {
         // Paso 6: Si el valor no fue encontrado
         return -1;
     }
-
+    // Método principal para probar la búsqueda iterativa
     public static void main(String[] args) {
-        BinarySearchIterativa bs = new BinarySearchIterativa();
-        int[] arr = {1, 2, 3, 4, 5};
+        BinarySearchIterativa buscador = new BinarySearchIterativa();
+
+        // Arreglo ordenado para buscar
+        int[] arreglo = {1, 2, 3, 4, 5};
+
+        // Valor a buscar
         int x = 3;
 
-        int posicion = bs.binarySearch(arr, x);
+        // Llamamos al método de búsqueda iterativa
+        int resultado = buscador.binarySearch(arreglo, x);
 
-        if (posicion == -1)
+        // Mostramos el resultado
+        if (resultado == -1)
             System.out.println("Elemento no encontrado");
         else
-            System.out.println("Elemento encontrado en índice: " + posicion);
+            System.out.println("Elemento encontrado en índice: " + resultado);
     }
 }

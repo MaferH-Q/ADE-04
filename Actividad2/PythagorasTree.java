@@ -21,7 +21,7 @@ public class PythagorasTree extends JPanel {
     }
 
     // Este método se ejecuta automáticamente cuando se dibuja el panel
-    @Override
+    
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // Limpia la pantalla antes de dibujar
 

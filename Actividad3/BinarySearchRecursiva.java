@@ -4,39 +4,44 @@ package Actividad3;
 // =======================
 public class BinarySearchRecursiva {
 
-    // Método recursivo para búsqueda binaria
-    int binarySearch(int[] arr, int lo, int hi, int x) {
-        // Paso 1: Verificar si hay elementos en el rango
-        if (hi >= lo) {
-            // Paso 2: Calcular el índice del medio
-            int mid = lo + (hi - lo) / 2;
+   // Este método realiza la búsqueda binaria usando recursividad
+   int binarySearch(int[] arr, int lo, int hi, int x) {
+    // Paso 1: Verificar si ya no hay más elementos por revisar
+    if (hi < lo)
+        return -1; // No se encontró el valor
 
-            // Paso 3: Verificar si encontramos el elemento
-            if (arr[mid] == x)
-                return mid;
+    // Paso 2: Calcular la posición del medio del arreglo actual
+    int mid = lo + (hi - lo) / 2;
 
-            // Paso 4: Si el valor es menor, buscar en la mitad izquierda
-            if (arr[mid] > x)
-                return binarySearch(arr, lo, mid - 1, x);
+    // Paso 3: Si el valor medio es el que buscamos, lo retornamos
+    if (arr[mid] == x)
+        return mid;
 
-            // Paso 5: Si el valor es mayor, buscar en la mitad derecha
-            return binarySearch(arr, mid + 1, hi, x);
-        }
+    // Paso 4: Si el valor medio es mayor al que buscamos, buscar en la izquierda
+    if (arr[mid] > x)
+        return binarySearch(arr, lo, mid - 1, x);
 
-        // Paso 6: Si no lo encontramos
-        return -1;
-    }
+    // Paso 5: Si el valor medio es menor, buscar en la derecha
+    return binarySearch(arr, mid + 1, hi, x);
+}
 
-    public static void main(String[] args) {
-        BinarySearchRecursiva bs = new BinarySearchRecursiva();
-        int[] arr = {1, 2, 3, 4, 5};
-        int x = 4;
+// Método principal para probar la búsqueda recursiva
+public static void main(String[] args) {
+    BinarySearchRecursiva buscador = new BinarySearchRecursiva();
 
-        int posicion = bs.binarySearch(arr, 0, arr.length - 1, x);
+    // Creamos un arreglo ordenado
+    int[] arreglo = {1, 2, 3, 4, 5};
 
-        if (posicion == -1)
-            System.out.println("Elemento no encontrado");
-        else
-            System.out.println("Elemento encontrado en índice: " + posicion);
-    }
+    // Indicamos el número que queremos buscar
+    int x = 4;
+
+    // Llamamos al método de búsqueda
+    int resultado = buscador.binarySearch(arreglo, 0, arreglo.length - 1, x);
+
+    // Mostramos el resultado de la búsqueda
+    if (resultado == -1)
+        System.out.println("Elemento no encontrado");
+    else
+        System.out.println("Elemento encontrado en índice: " + resultado);
+}
 }
