@@ -1,8 +1,7 @@
 package Actividad2;
 
 /// ==============================================
-// Árbol de Pitágoras (versión mejorada con color y escalado)
-// Explicado paso a paso para una estudiante que está aprendiendo
+// Árbol de Pitágoras //
 // ==============================================
 
 import javax.swing.*;   // Librería para crear la ventana
