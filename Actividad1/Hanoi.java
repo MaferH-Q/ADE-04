@@ -5,6 +5,7 @@ public class Hanoi {
     public static void main(String[] args) {
         // Llamamos al método para 3 discos, de torre 1 a torre 3, usando la torre 2 como auxiliar
         torresHanoi(3, 1, 2, 3);
+    }
 
     // Método recursivo que resuelve el problema de las Torres de Hanoi
     public static void torresHanoi(int discos, int origen, int auxiliar, int destino) {
