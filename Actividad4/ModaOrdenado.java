@@ -7,42 +7,41 @@ import java.util.Arrays;
 
 public class ModaOrdenado {
 
-    // Función para encontrar la moda en un arreglo ordenado
     public static int moda(int[] arr) {
-        Arrays.sort(arr); // Paso 1: Ordenar el arreglo
+        Arrays.sort(arr); // ordenamos el arreglo para juntar iguales
 
-        // Paso 2: Inicializar variables para contar frecuencias
+        // Variables para llevar el control
         int moda = arr[0];
         int maxFrecuencia = 1;
         int actual = arr[0];
         int frecuenciaActual = 1;
 
-        // Paso 3: Recorrer el arreglo para contar frecuencias consecutivas
+        // Recorremos desde el segundo elemento
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] == actual) {
-                frecuenciaActual++; // Mismo número, incrementa la frecuencia
+                frecuenciaActual++; // seguimos contando
             } else {
-                // Nuevo número, comparar frecuencia anterior con máxima
+                // comparamos si esa secuencia fue la más larga
                 if (frecuenciaActual > maxFrecuencia) {
                     maxFrecuencia = frecuenciaActual;
                     moda = actual;
                 }
-                actual = arr[i]; // Actualizamos el número actual
-                frecuenciaActual = 1; // Reiniciar frecuencia
+                // reiniciamos los contadores
+                actual = arr[i];
+                frecuenciaActual = 1;
             }
         }
 
-        // Paso 4: Verificar la última secuencia
+        // Última verificación al salir del bucle
         if (frecuenciaActual > maxFrecuencia) {
             moda = actual;
         }
 
-        // Paso 5: Retornar la moda
         return moda;
     }
 
     public static void main(String[] args) {
         int[] arreglo = {1, 2, 2, 3, 3, 3, 4};
-        System.out.println("Moda (ordenado): " + moda(arreglo));
+        System.out.println("La moda ordenada es: " + moda(arreglo));
     }
 }
